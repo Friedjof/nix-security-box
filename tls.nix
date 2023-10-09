@@ -1,13 +1,14 @@
 # SSL/TLS testing tools
 
-{ pkgs, ... }:
-
-{
-  environment.systemPackages = with pkgs; [
-    sslscan
-    ssldump
-    sslsplit
-    testssl
-    tlsx
-  ];
+{ pkgs ? import <nixpkgs> {} }:
+let
+in
+  pkgs.mkShell {
+    pkgs.buildInputs = [
+      pkgs.sslscan
+      pkgs.ssldump
+      pkgs.sslsplit
+      pkgs.testssl
+      pkgs.tlsx
+    ];
 }

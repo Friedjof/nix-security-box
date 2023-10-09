@@ -1,20 +1,21 @@
 # Tools for working with Android/iOS devices
 
-{ pkgs, ... }:
-
-{
-  environment.systemPackages = with pkgs; [
-    abootimg
-    androguard
-    apkeep
-    apkleaks
-    apktool
-    dex2jar
-    genymotion
-    ghost
-    payload-dumper-go
-    scrcpy
-    simg2img
-    trueseeing
-  ];
+{ pkgs ? import <nixpkgs> {} }:
+let
+in
+  pkgs.mkShell {
+    pkgs.buildInputs = [
+      pkgs.abootimg
+      pkgs.androguard
+      pkgs.apkeep
+      pkgs.apkleaks
+      pkgs.apktool
+      pkgs.dex2jar
+      pkgs.genymotion
+      pkgs.ghost
+      pkgs.payload-dumper-go
+      pkgs.scrcpy
+      pkgs.simg2img
+      pkgs.trueseeing
+    ];
 }

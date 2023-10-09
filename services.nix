@@ -1,61 +1,62 @@
 # Tools for testing various services (SSH, SNMP, etc.)
 
-{ pkgs, ... }:
+{ pkgs ? import <nixpkgs> {} }:
+let
+in
+  pkgs.mkShell {
+    pkgs.buildInputs = [
+      pkgs.acltoolkit
+      pkgs.checkip
+      pkgs.ghunt
+      pkgs.ike-scan
+      pkgs.keepwn
+      pkgs.metasploit
+      pkgs.nbutools
+      pkgs.nuclei
+      pkgs.openrisk
+      pkgs.osv-scanner
+      pkgs.uncover
+      pkgs.traitor
 
-{
-  environment.systemPackages = with pkgs; [
-    acltoolkit
-    checkip
-    ghunt
-    ike-scan
-    keepwn
-    metasploit
-    nbutools
-    nuclei
-    openrisk
-    osv-scanner
-    uncover
-    traitor
+      # E-Mail
+      pkgs.mx-takeover
+      pkgs.ruler
+      pkgs.swaks
+      pkgs.trustymail
 
-    # E-Mail
-    mx-takeover
-    ruler
-    swaks
-    trustymail
+      # Databases
+      pkgs.ghauri
+      pkgs.mongoaudit
+      pkgs.sqlmap
 
-    # Databases
-    ghauri
-    mongoaudit
-    sqlmap
+      # SNMP
+      pkgs.onesixtyone
+      pkgs.snmpcheck
 
-    # SNMP
-    onesixtyone
-    snmpcheck
+      # SSH
+      pkgs.baboossh
+      pkgs.sshchecker
+      pkgs.ssh-audit
+      pkgs.ssh-mitm
+      pkgs.ssb
 
-    # SSH
-    baboossh
-    sshchecker
-    ssh-audit
-    ssh-mitm
-    ssb
+      # IDS/IPS/WAF
+      pkgs.teler
+      pkgs.waf-tester
+      pkgs.wafw00f
 
-    # IDS/IPS/WAF
-    teler
-    waf-tester
-    wafw00f
+      # CI
+      pkgs.oshka
 
-    # CI
-    oshka
+      # Terraform
+      pkgs.terrascan
+      pkgs.tfsec
 
-    # Terraform
-    terrascan
-    tfsec
-
-    # Supply chain
-    chain-bench
-    witness
-    
-    # WebDAV
-    davtest
-  ];
+      # Supply chain
+      pkgs.chain-bench
+      pkgs.witness
+      
+      # WebDAV
+      pkgs.davtest
+    ];
 }

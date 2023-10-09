@@ -1,16 +1,17 @@
 # Load testing tools
 
-{ pkgs, ... }:
-
-{
-  environment.systemPackages = with pkgs; [
-    ali
-    drill
-    cassowary
-    ddosify
-    oha
-    siege
-    tsung
-    vegeta
-  ];
+{ pkgs ? import <nixpkgs> {} }:
+let
+in
+  pkgs.mkShell {
+    pkgs.buildInputs = [
+      pkgs.ali
+      pkgs.drill
+      pkgs.cassowary
+      pkgs.ddosify
+      pkgs.oha
+      pkgs.siege
+      pkgs.tsung
+      pkgs.vegeta
+    ];
 }

@@ -1,18 +1,19 @@
 # Proxy tools for MitM scenarios
 
-{ pkgs, ... }:
-
-{
-  environment.systemPackages = with pkgs; [
-    bettercap
-    burpsuite
-    ettercap
-    mitmproxy
-    mubeng
-    proxify
-    proxychains
-    redsocks
-    rshijack
-    zap
-  ];
+{ pkgs ? import <nixpkgs> {} }:
+let
+in
+  pkgs.mkShell {
+    pkgs.buildInputs = [
+      pkgs.bettercap
+      pkgs.burpsuite
+      pkgs.ettercap
+      pkgs.mitmproxy
+      pkgs.mubeng
+      pkgs.proxify
+      pkgs.proxychains
+      pkgs.redsocks
+      pkgs.rshijack
+      pkgs.zap
+    ];
 }

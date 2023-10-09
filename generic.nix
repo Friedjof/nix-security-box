@@ -1,66 +1,67 @@
 # Generic tools (terminals, packers, clients, etc.)
 
-{ pkgs, ... }:
+{ pkgs ? import <nixpkgs> {} }:
+let
+in
+  pkgs.mkShell {
+    pkgs.buildInputs = [
+      pkgs.chrony
+      pkgs.clamav
+      pkgs.curl
+      pkgs.dorkscout
+      pkgs.flashrom
+      pkgs.girsh
+      pkgs.htop
+      pkgs.httpie
+      pkgs.hurl
+      pkgs.inetutils
+      pkgs.inxi
+      pkgs.ioccheck
+      pkgs.iproute
+      pkgs.iproute2
+      pkgs.iw
+      pkgs.lynx
+      pkgs.macchanger
+      pkgs.nano
+      pkgs.parted
+      pkgs.pwgen
+      pkgs.spyre
+      pkgs.utillinux
+      pkgs.wget
+      pkgs.xh
 
-{
-  environment.systemPackages = with pkgs; [
-    chrony
-    clamav
-    curl
-    dorkscout
-    flashrom
-    girsh
-    htop
-    httpie
-    hurl
-    inetutils
-    inxi
-    ioccheck
-    iproute
-    iproute2
-    iw
-    lynx
-    macchanger
-    nano
-    parted
-    pwgen
-    spyre
-    utillinux
-    wget
-    xh
+      # Terminal helpers
+      pkgs.eternal-terminal
+      pkgs.mosh
+      pkgs.shellz
 
-    # Terminal helpers
-    eternal-terminal
-    mosh
-    shellz
+      # Common client for various protocols
+      pkgs.cifs-utils
+      pkgs.freerdp
+      pkgs.net-snmp
+      pkgs.nfs-utils
+      pkgs.ntp
+      pkgs.openssh
+      pkgs.openvpn
+      pkgs.samba
+      pkgs.step-cli
+      pkgs.tightvnc
+      pkgs.wireguard-go
+      pkgs.wireguard-tools
+      pkgs.xrdp
 
-    # Common client for various protocols
-    cifs-utils
-    freerdp
-    net-snmp
-    nfs-utils
-    ntp
-    openssh
-    openvpn
-    samba
-    step-cli
-    tightvnc
-    wireguard-go
-    wireguard-tools
-    xrdp
+      # Network design helpers
+      pkgs.ipcalc
+      pkgs.netmask
 
-    # Network design helpers
-    ipcalc
-    netmask
+      # Terminal multiplexer
+      pkgs.tmux
+      pkgs.zellij
 
-    # Terminal multiplexer
-    tmux
-    zellij
-
-    # Archive tools
-    cabextract
-    p7zip
-    unrar
-    unzip
-  ];
+      # Archive tools
+      pkgs.cabextract
+      pkgs.p7zip
+      pkgs.unrar
+      pkgs.unzip
+    ];
 }

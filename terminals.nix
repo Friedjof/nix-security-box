@@ -1,13 +1,14 @@
 # Terminal tools
 
-{ pkgs, ... }:
-
-{
-  environment.systemPackages = with pkgs; [
-    cutecom
-    minicom
-    picocom
-    socat
-    x3270
-  ];
+{ pkgs ? import <nixpkgs> {} }:
+let
+in
+  pkgs.mkShell {
+    pkgs.buildInputs = [
+      pkgs.cutecom
+      pkgs.minicom
+      pkgs.picocom
+      pkgs.socat
+      pkgs.x3270
+    ];
 }

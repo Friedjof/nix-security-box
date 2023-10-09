@@ -1,18 +1,19 @@
 # Tunneling tools
 
-{ pkgs, ... }:
-
-{
-  environment.systemPackages = with pkgs; [
-    bore-cli
-    corkscrew
-    hans
-    chisel
-    httptunnel
-    iodine
-    sish
-    stunnel
-    udptunnel
-    wstunnel
-  ];
+{ pkgs ? import <nixpkgs> {} }:
+let
+in
+  pkgs.mkShell {
+    buildInputs = [
+      pkgs.bore-cli
+      pkgs.corkscrew
+      pkgs.hans
+      pkgs.chisel
+      pkgs.httptunnel
+      pkgs.iodine
+      pkgs.sish
+      pkgs.stunnel
+      pkgs.udptunnel
+      pkgs.wstunnel
+    ];
 }

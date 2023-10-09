@@ -1,59 +1,60 @@
 # Tools for working with web servers, web applications, APIs, etc.
 
-{ pkgs, ... }:
-
-{
-  environment.systemPackages = with pkgs; [
-    apachetomcatscanner
-    arjun
-    brakeman
-    cameradar
-    cariddi
-    chopchop
-    clairvoyance
-    commix
-    crackql
-    crlfsuite
-    dalfox
-    dismap
-    dirstalk
-    dontgo403
-    galer
-    gau
-    gospider
-    gotestwaf
-    gowitness
-    graphqlmap
-    graphw00f
-    hakrawler
-    hey
-    httpx
-    nodePackages.hyperpotamus
-    jaeles
-    jsubfinder
-    jwt-hack
-    katana
-    kiterunner
-    mantra
-    mitmproxy2swagger
-    monsoon
-    nikto
-    ntlmrecon
-    photon
-    plecost
-    scraper
-    slowlorust
-    snallygaster
-    subjs
-    swaggerhole
-    uddup
-    wad
-    webanalyze
-    whatweb
-    wprecon
-    wpscan
-    wuzz
-    xcrawl3r
-    xsubfind3r
-  ];
+{ pkgs ? import <nixpkgs> {} }:
+let
+in
+  pkgs.mkShell {
+    buildInputs = [
+      pkgs.apachetomcatscanner
+      pkgs.arjun
+      pkgs.brakeman
+      pkgs.cameradar
+      pkgs.cariddi
+      pkgs.chopchop
+      pkgs.clairvoyance
+      pkgs.commix
+      pkgs.crackql
+      pkgs.crlfsuite
+      pkgs.dalfox
+      pkgs.dismap
+      pkgs.dirstalk
+      pkgs.dontgo403
+      pkgs.galer
+      pkgs.gau
+      pkgs.gospider
+      pkgs.gotestwaf
+      pkgs.gowitness
+      pkgs.graphqlmap
+      pkgs.graphw00f
+      pkgs.hakrawler
+      pkgs.hey
+      pkgs.httpx
+      pkgs.nodePackages.hyperpotamus
+      pkgs.jaeles
+      pkgs.jsubfinder
+      pkgs.jwt-hack
+      pkgs.katana
+      pkgs.kiterunner
+      pkgs.mantra
+      pkgs.mitmproxy2swagger
+      pkgs.monsoon
+      pkgs.nikto
+      pkgs.ntlmrecon
+      pkgs.photon
+      pkgs.plecost
+      pkgs.scraper
+      pkgs.slowlorust
+      pkgs.snallygaster
+      pkgs.subjs
+      pkgs.swaggerhole
+      pkgs.uddup
+      pkgs.wad
+      pkgs.webanalyze
+      pkgs.whatweb
+      pkgs.wprecon
+      pkgs.wpscan
+      pkgs.wuzz
+      pkgs.xcrawl3r
+      pkgs.xsubfind3r
+    ];
 }

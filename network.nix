@@ -1,31 +1,32 @@
 # Common network tools
 
-{ pkgs, ... }:
-
-{
-  environment.systemPackages = with pkgs; [
-    arping
-    atftp
-    bandwhich
-    crackmapexec
-    evillimiter
-    iperf2
-    lftp
-    mitm6
-    mtr
-    ncftp
-    netcat-gnu
-    netdiscover
-    nload
-    nuttcp
-    putty
-    pwnat
-    responder
-    rustcat
-    sshping
-    sslh
-    wbox
-    whois
-    yersinia
-  ];
+{ pkgs ? import <nixpkgs> {} }:
+let
+in
+  pkgs.mkShell {
+    pkgs.buildInputs = [
+      pkgs.arping
+      pkgs.atftp
+      pkgs.bandwhich
+      pkgs.crackmapexec
+      pkgs.evillimiter
+      pkgs.iperf2
+      pkgs.lftp
+      pkgs.mitm6
+      pkgs.mtr
+      pkgs.ncftp
+      pkgs.netcat-gnu
+      pkgs.netdiscover
+      pkgs.nload
+      pkgs.nuttcp
+      pkgs.putty
+      pkgs.pwnat
+      pkgs.responder
+      pkgs.rustcat
+      pkgs.sshping
+      pkgs.sslh
+      pkgs.wbox
+      pkgs.whois
+      pkgs.yersinia
+    ];
 }

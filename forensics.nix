@@ -1,36 +1,37 @@
 # Forensic tools
 
-{ pkgs, ... }:
-
-{
-  environment.systemPackages = with pkgs; [
-    afflib
-    amoco
-    acquire
-    dcfldd
-    ddrescue
-    dislocker
-    dismember
-    exiv2
-    ext4magic
-    extundelete
-    foremost
-    gef
-    gzrt
-    hivex
-    hstsparser
-    noseyparker
-    ntfs3g
-    ntfsprogs
-    nwipe
-    recoverjpeg
-    safecopy
-    sleuthkit
-    srm
-    stegseek
-    testdisk
-    volatility3
-    wipe
-    xorex
-  ];
+{ pkgs ? import <nixpkgs> {} }:
+let
+in
+  pkgs.mkShell {
+    pkgs.buildInputs = [
+      pkgs.afflib
+      pkgs.amoco
+      pkgs.acquire
+      pkgs.dcfldd
+      pkgs.ddrescue
+      pkgs.dislocker
+      pkgs.dismember
+      pkgs.exiv2
+      pkgs.ext4magic
+      pkgs.extundelete
+      pkgs.foremost
+      pkgs.gef
+      pkgs.gzrt
+      pkgs.hivex
+      pkgs.hstsparser
+      pkgs.noseyparker
+      pkgs.ntfs3g
+      pkgs.ntfsprogs
+      pkgs.nwipe
+      pkgs.recoverjpeg
+      pkgs.safecopy
+      pkgs.sleuthkit
+      pkgs.srm
+      pkgs.stegseek
+      pkgs.testdisk
+      pkgs.volatility3
+      pkgs.wipe
+      pkgs.xorex
+    ];
 }

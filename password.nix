@@ -1,24 +1,25 @@
 # Password and hashing tools
 
-{ pkgs, ... }:
-
-{
-  environment.systemPackages = with pkgs; [
-    authoscope
-    bruteforce-luks
-    brutespray
-    crunch
-    hashcat
-    hashcat-utils
-    hashdeep
-    john
-    medusa
-    nasty
-    ncrack
-    nth
-    phrasendrescher
-    python3Packages.patator
-    thc-hydra
-    truecrack
-  ];
+{ pkgs ? import <nixpkgs> {} }:
+let
+in
+  pkgs.mkShell {
+    pkgs.buildInputs = [
+      pkgs.authoscope
+      pkgs.bruteforce-luks
+      pkgs.brutespray
+      pkgs.crunch
+      pkgs.hashcat
+      pkgs.hashcat-utils
+      pkgs.hashdeep
+      pkgs.john
+      pkgs.medusa
+      pkgs.nasty
+      pkgs.ncrack
+      pkgs.nth
+      pkgs.phrasendrescher
+      pkgs.python3Packages.patator
+      pkgs.thc-hydra
+      pkgs.truecrack
+    ];
 }

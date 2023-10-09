@@ -1,12 +1,13 @@
 # VoIP/SIP tools
 
-{ pkgs, ... }:
-
-{
-  environment.systemPackages = with pkgs; [
-    sipp
-    sipsak
-    sipvicious
-    sngrep
-  ];
+{ pkgs ? import <nixpkgs> {} }:
+let
+in
+  pkgs.mkShell {
+    buildInputs = [
+      pkgs.sipp
+      pkgs.sipsak
+      pkgs.sipvicious
+      pkgs.sngrep
+    ];
 }

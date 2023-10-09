@@ -1,13 +1,14 @@
 # Bluetooth tools
 
-{ pkgs, ... }:
-
-{
-  environment.systemPackages = with pkgs; [
-    bluez
-    bluewalker
-    python3Packages.bleak
-    redfang
-    ubertooth
-  ];
+{ pkgs ? import <nixpkgs> {} }:
+let
+in
+  pkgs.mkShell {
+    pkgs.buildInputs = [
+      pkgs.bluez
+      pkgs.bluewalker
+      pkgs.python3Packages.bleak
+      pkgs.redfang
+      pkgs.ubertooth
+    ];
 }

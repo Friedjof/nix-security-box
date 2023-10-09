@@ -1,15 +1,16 @@
 # Host security tools
 
-{ pkgs, ... }:
-
-{
-  environment.systemPackages = with pkgs; [
-    checksec
-    chkrootkit
-    linux-exploit-suggester
-    lynis
-    safety-cli
-    tracee
-    vulnix
-  ];
+{ pkgs ? import <nixpkgs> {} }:
+let
+in
+  pkgs.mkShell {
+    pkgs.buildInputs = [
+      pkgs.checksec
+      pkgs.chkrootkit
+      pkgs.linux-exploit-suggester
+      pkgs.lynis
+      pkgs.safety-cli
+      pkgs.tracee
+      pkgs.vulnix
+    ];
 }
